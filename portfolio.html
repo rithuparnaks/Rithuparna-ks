@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rithuparna K S — Robotics & Automation Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #080807;
+  --bg2: #0f0f0e;
+  --bg3: #161614;
+  --white: #f2ede4;
+  --muted: #6e6d60;
+  --accent: #e8ff47;
+  --accent2: #ff5c35;
+  --accent3: #47c8ff;
+  --border: rgba(242,237,228,0.08);
+  --border2: rgba(242,237,228,0.14);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  background:var(--bg);
+  color:var(--white);
+  font-family:'Space Grotesk',sans-serif;
+  font-size:16px;
+  line-height:1.6;
+  overflow-x:hidden;
+  cursor:none;
+}
+body::after{
+  content:'';
+  position:fixed;inset:0;
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events:none;z-index:999;opacity:.5;
+}
+#cur{position:fixed;width:8px;height:8px;background:var(--accent);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .25s,height .25s,background .25s;}
+#cur2{position:fixed;width:32px;height:32px;border:1px solid rgba(232,255,71,.35);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width .3s,height .3s;}
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:18px 56px;
+  border-bottom:1px solid var(--border);
+  background:rgba(8,8,7,.88);
+  backdrop-filter:blur(24px);
+}
+.logo{font-family:'Space Mono',monospace;font-size:13px;color:var(--accent);letter-spacing:.1em;text-decoration:none;}
+.nav-links{display:flex;gap:32px;}
+.nav-links a{font-size:12px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .2s;}
+.nav-links a:hover{color:var(--white);}
+.nav-btn{font-family:'Space Mono',monospace;font-size:12px;color:var(--bg);background:var(--accent);padding:9px 22px;text-decoration:none;font-weight:700;transition:transform .2s,background .2s;border:none;cursor:none;}
+.nav-btn:hover{background:#f0ff6b;transform:translateY(-1px);}
+.hero{
+  min-height:100vh;
+  display:flex;flex-direction:column;justify-content:flex-end;
+  padding:0 56px 80px;
+  position:relative;overflow:hidden;
+  border-bottom:1px solid var(--border);
+}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(242,237,228,.018) 1px,transparent 1px),linear-gradient(90deg,rgba(242,237,228,.018) 1px,transparent 1px);background-size:72px 72px;pointer-events:none;}
+.hero-ghost{position:absolute;bottom:-40px;right:-20px;font-family:'Playfair Display',serif;font-size:clamp(180px,28vw,380px);font-weight:900;color:rgba(242,237,228,.018);pointer-events:none;line-height:1;user-select:none;letter-spacing:-.04em;}
+.hero-eyebrow{font-family:'Space Mono',monospace;font-size:11px;color:var(--accent);letter-spacing:.2em;text-transform:uppercase;margin-bottom:20px;display:flex;align-items:center;gap:14px;opacity:0;animation:up .7s ease .15s forwards;}
+.hero-eyebrow::before{content:'';display:block;width:28px;height:1px;background:var(--accent);}
+.hero-name{font-family:'Playfair Display',serif;font-size:clamp(52px,9.5vw,148px);font-weight:900;line-height:.88;letter-spacing:-.035em;margin-bottom:36px;opacity:0;animation:up .7s ease .3s forwards;}
+.hero-name .line2{display:block;-webkit-text-stroke:1px rgba(242,237,228,.35);color:transparent;font-style:italic;}
+.hero-bottom{display:flex;align-items:flex-end;gap:48px;justify-content:space-between;opacity:0;animation:up .7s ease .5s forwards;}
+.hero-bio{max-width:500px;font-size:17px;color:rgba(242,237,228,.6);line-height:1.75;font-weight:300;}
+.hero-bio strong{color:var(--white);font-weight:600;}
+.hero-badges{display:flex;flex-direction:column;gap:10px;align-items:flex-end;flex-shrink:0;}
+.badge{font-family:'Space Mono',monospace;font-size:11px;padding:6px 16px;border:1px solid;letter-spacing:.08em;white-space:nowrap;}
+.badge-rr{border-color:rgba(71,200,255,.3);color:var(--accent3);}
+.badge-award{border-color:rgba(232,255,71,.3);color:var(--accent);}
+.badge-cgpa{border-color:rgba(242,237,228,.2);color:var(--muted);}
+.scroll-cue{position:absolute;bottom:32px;left:56px;font-family:'Space Mono',monospace;font-size:10px;color:var(--muted);letter-spacing:.14em;text-transform:uppercase;display:flex;align-items:center;gap:10px;animation:fadein 1s ease 1.2s both;}
+.scroll-line{width:1px;height:44px;background:linear-gradient(to bottom,transparent,var(--muted));}
+section{padding:100px 56px;border-bottom:1px solid var(--border);}
+.sec-label{font-family:'Space Mono',monospace;font-size:10px;color:var(--accent);letter-spacing:.22em;text-transform:uppercase;margin-bottom:14px;display:flex;align-items:center;gap:12px;}
+.sec-label span{color:var(--muted);}
+.sec-title{font-family:'Playfair Display',serif;font-size:clamp(36px,5.5vw,78px);font-weight:700;line-height:.95;letter-spacing:-.025em;margin-bottom:64px;}
+.sec-title em{font-style:italic;color:var(--accent);}
+.about-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:80px;align-items:start;}
+.about-text{font-size:17px;color:rgba(242,237,228,.65);line-height:1.8;font-weight:300;}
+.about-text p+p{margin-top:18px;}
+.about-text strong{color:var(--white);font-weight:600;}
+.about-text a{color:var(--accent);text-decoration:none;}
+.info-block{display:flex;flex-direction:column;gap:0;}
+.info-row{display:flex;justify-content:space-between;align-items:flex-start;padding:14px 0;border-bottom:1px solid var(--border);font-size:13px;gap:20px;}
+.info-row:first-child{border-top:1px solid var(--border);}
+.info-key{font-family:'Space Mono',monospace;color:var(--muted);font-size:11px;letter-spacing:.06em;flex-shrink:0;}
+.info-val{color:var(--white);text-align:right;font-weight:500;}
+.cgpa-hi{display:inline-block;background:rgba(232,255,71,.1);color:var(--accent);padding:2px 10px;font-family:'Space Mono',monospace;font-size:12px;}
+.exp-list{display:flex;flex-direction:column;gap:0;}
+.exp-card{display:grid;grid-template-columns:220px 1fr;gap:0;border-top:1px solid var(--border);padding:44px 0;transition:background .3s;position:relative;}
+.exp-card::before{content:'';position:absolute;left:-56px;top:0;bottom:0;width:3px;background:var(--accent);transform:scaleY(0);transform-origin:top;transition:transform .4s ease;}
+.exp-card:hover::before{transform:scaleY(1);}
+.exp-card:last-child{border-bottom:1px solid var(--border);}
+.exp-period{font-family:'Space Mono',monospace;font-size:11px;color:var(--muted);letter-spacing:.06em;line-height:1.8;margin-bottom:12px;}
+.exp-co-tag{font-family:'Space Mono',monospace;font-size:11px;padding:4px 12px;border:1px solid;display:inline-block;letter-spacing:.06em;}
+.tag-rr{border-color:rgba(71,200,255,.3);color:var(--accent3);}
+.tag-tech{border-color:rgba(232,255,71,.2);color:var(--accent);}
+.tag-dti{border-color:rgba(242,237,228,.15);color:var(--muted);}
+.exp-content{padding-left:48px;}
+.exp-role{font-size:22px;font-weight:700;letter-spacing:-.01em;margin-bottom:4px;}
+.exp-company{font-family:'Space Mono',monospace;font-size:12px;color:var(--muted);margin-bottom:18px;letter-spacing:.05em;}
+.exp-bullets{display:flex;flex-direction:column;gap:10px;}
+.exp-bullet{font-size:14px;color:rgba(242,237,228,.55);line-height:1.65;display:flex;gap:12px;align-items:flex-start;}
+.exp-bullet::before{content:'—';color:var(--accent);flex-shrink:0;font-size:12px;margin-top:2px;}
+.exp-bullet strong{color:rgba(242,237,228,.85);font-weight:600;}
+.projects-grid{display:flex;flex-direction:column;gap:2px;}
+.proj-card{background:var(--bg2);border:1px solid var(--border);padding:44px 48px;display:grid;grid-template-columns:1fr 180px;gap:40px;align-items:start;transition:border-color .3s,background .3s;position:relative;overflow:hidden;cursor:none;}
+.proj-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),transparent);transform:scaleX(0);transform-origin:left;transition:transform .5s ease;}
+.proj-card:hover{background:var(--bg3);border-color:rgba(232,255,71,.18);}
+.proj-card:hover::after{transform:scaleX(1);}
+.proj-num{font-family:'Space Mono',monospace;font-size:11px;color:var(--muted);letter-spacing:.1em;margin-bottom:10px;display:flex;align-items:center;gap:12px;}
+.proj-status{font-size:10px;padding:3px 10px;letter-spacing:.1em;border:1px solid;}
+.st-done{background:rgba(232,255,71,.07);color:var(--accent);border-color:rgba(232,255,71,.25);}
+.st-award{background:rgba(255,92,53,.07);color:var(--accent2);border-color:rgba(255,92,53,.25);}
+.st-built{background:rgba(71,200,255,.07);color:var(--accent3);border-color:rgba(71,200,255,.25);}
+.proj-title{font-family:'Playfair Display',serif;font-size:clamp(22px,2.8vw,36px);font-weight:700;line-height:1.1;letter-spacing:-.02em;margin-bottom:12px;}
+.proj-desc{font-size:14px;color:var(--muted);line-height:1.7;max-width:580px;margin-bottom:20px;}
+.proj-tags{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:22px;}
+.proj-tag{font-family:'Space Mono',monospace;font-size:10px;color:var(--muted);border:1px solid rgba(242,237,228,.1);padding:4px 11px;letter-spacing:.03em;transition:color .2s,border-color .2s;}
+.proj-card:hover .proj-tag{color:rgba(242,237,228,.5);border-color:rgba(242,237,228,.15);}
+.proj-points{display:flex;flex-direction:column;gap:7px;}
+.proj-point{font-size:13px;color:rgba(242,237,228,.45);display:flex;gap:10px;align-items:flex-start;line-height:1.55;}
+.proj-point::before{content:'→';color:var(--accent);flex-shrink:0;font-size:11px;margin-top:2px;}
+.proj-right{text-align:right;}
+.proj-arrow{display:block;font-size:26px;color:var(--muted);margin-bottom:24px;transition:color .3s,transform .3s;}
+.proj-card:hover .proj-arrow{color:var(--accent);transform:translate(4px,-4px);}
+.proj-cat{font-family:'Space Mono',monospace;font-size:10px;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;writing-mode:vertical-rl;transform:rotate(180deg);line-height:1;}
+.skills-wrap{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--border);}
+.skill-cell{background:var(--bg2);padding:36px 40px;transition:background .25s;}
+.skill-cell:hover{background:var(--bg3);}
+.skill-cell-label{font-family:'Space Mono',monospace;font-size:10px;color:var(--accent);letter-spacing:.18em;text-transform:uppercase;margin-bottom:12px;display:block;}
+.skill-cell-name{font-size:17px;font-weight:700;margin-bottom:18px;letter-spacing:-.01em;}
+.skill-chips{display:flex;flex-wrap:wrap;gap:7px;}
+.chip{font-family:'Space Mono',monospace;font-size:10px;color:var(--white);background:rgba(242,237,228,.05);border:1px solid rgba(242,237,228,.1);padding:5px 12px;letter-spacing:.03em;transition:background .2s,border-color .2s,color .2s;}
+.chip:hover{background:rgba(232,255,71,.09);border-color:rgba(232,255,71,.28);color:var(--accent);}
+.chip.hi{background:rgba(232,255,71,.08);border-color:rgba(232,255,71,.22);color:var(--accent);}
+.chip.hi2{background:rgba(71,200,255,.07);border-color:rgba(71,200,255,.22);color:var(--accent3);}
+.ach-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);}
+.ach-card{background:var(--bg2);padding:36px;transition:background .25s;position:relative;overflow:hidden;}
+.ach-card:hover{background:var(--bg3);}
+.ach-medal{font-family:'Playfair Display',serif;font-size:52px;font-weight:900;line-height:1;margin-bottom:12px;letter-spacing:-.03em;}
+.ach-gold{color:var(--accent);}
+.ach-silver{color:rgba(200,200,190,.7);}
+.ach-win{color:var(--accent2);}
+.ach-event{font-size:15px;font-weight:700;margin-bottom:6px;}
+.ach-detail{font-size:12px;color:var(--muted);line-height:1.6;}
+.ach-year{position:absolute;bottom:20px;right:20px;font-family:'Space Mono',monospace;font-size:10px;color:var(--muted);letter-spacing:.1em;}
+.contact-inner{text-align:center;padding:120px 56px;}
+.contact-pre{font-family:'Space Mono',monospace;font-size:11px;color:var(--muted);letter-spacing:.2em;text-transform:uppercase;margin-bottom:20px;}
+.contact-heading{font-family:'Playfair Display',serif;font-size:clamp(44px,8vw,110px);font-weight:900;line-height:.9;letter-spacing:-.035em;margin-bottom:48px;}
+.contact-heading em{font-style:italic;color:var(--accent);}
+.contact-sub{font-size:17px;color:var(--muted);max-width:480px;margin:0 auto 48px;line-height:1.7;font-weight:300;}
+.cta-row{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;}
+.cta{font-family:'Space Mono',monospace;font-size:12px;padding:14px 32px;letter-spacing:.06em;text-decoration:none;transition:transform .2s,background .2s,color .2s,border-color .2s;display:flex;align-items:center;gap:10px;cursor:none;}
+.cta-primary{background:var(--accent);color:var(--bg);border:1px solid var(--accent);}
+.cta-primary:hover{background:#f0ff6b;border-color:#f0ff6b;transform:translateY(-2px);}
+.cta-outline{background:transparent;color:var(--white);border:1px solid rgba(242,237,228,.2);}
+.cta-outline:hover{border-color:rgba(232,255,71,.35);color:var(--accent);transform:translateY(-2px);}
+footer{padding:28px 56px;display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--border);}
+.f-copy{font-family:'Space Mono',monospace;font-size:10px;color:var(--muted);letter-spacing:.06em;}
+.f-right{font-family:'Space Mono',monospace;font-size:10px;color:var(--muted);letter-spacing:.04em;}
+.f-right span{color:var(--accent);}
+@keyframes up{from{opacity:0;transform:translateY(28px);}to{opacity:1;transform:translateY(0);}}
+@keyframes fadein{from{opacity:0;}to{opacity:1;}}
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .65s ease,transform .65s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+@media(max-width:860px){
+  nav{padding:14px 24px;}.nav-links{display:none;}
+  section,.hero,.contact-inner,footer{padding-left:24px;padding-right:24px;}
+  .hero{padding-bottom:60px;}.hero-bottom{flex-direction:column;align-items:flex-start;}
+  .about-grid{grid-template-columns:1fr;}
+  .exp-card{grid-template-columns:1fr;}.exp-content{padding-left:0;margin-top:16px;}
+  .proj-card{grid-template-columns:1fr;padding:28px 24px;}.proj-right{display:none;}
+  .skills-wrap{grid-template-columns:1fr;}.ach-grid{grid-template-columns:1fr;}
+  footer{flex-direction:column;gap:10px;text-align:center;}
+}
+</style>
+</head>
+<body>
+<div id="cur"></div>
+<div id="cur2"></div>
+
+<nav>
+  <a class="logo" href="#">RKS</a>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#experience">Experience</a>
+    <a href="#projects">Projects</a>
+    <a href="#skills">Skills</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <a class="nav-btn" href="mailto:rithuparnaks@gmail.com">Get In Touch</a>
+</nav>
+
+<div class="hero" id="home">
+  <div class="hero-grid"></div>
+  <div class="hero-ghost">R&D</div>
+  <div class="hero-eyebrow">Robotics &amp; Automation Engineer</div>
+  <h1 class="hero-name">Rithuparna<br><span class="line2">K&nbsp;S</span></h1>
+  <div class="hero-bottom">
+    <p class="hero-bio">Final-year B.E. student with real industry experience at <strong>Rolls-Royce</strong>. I build autonomous systems that move, sense, and decide — from ROS/Gazebo test environments to award-winning hardware prototypes. Based in <strong>Mangaluru, KA</strong>.</p>
+    <div class="hero-badges">
+      <div class="badge badge-rr">Rolls-Royce Intern</div>
+      <div class="badge badge-award">Gold — INEX International Goa</div>
+      <div class="badge badge-award">IEEE Innovation Winner</div>
+      <div class="badge badge-cgpa">CGPA 8.41 / 10</div>
+    </div>
+  </div>
+  <div class="scroll-cue"><div class="scroll-line"></div>Scroll</div>
+</div>
+
+<section id="about">
+  <div class="sec-label"><span>01</span> About</div>
+  <h2 class="sec-title reveal">The Engineer<br><em>Behind the Work</em></h2>
+  <div class="about-grid">
+    <div class="about-text reveal">
+      <p>I'm a <strong>Robotics &amp; Automation</strong> engineer from Sahyadri College of Engineering, Mangaluru — graduating June 2026 with a CGPA of 8.41. My work spans the full spectrum: mechanical design in SolidWorks, ROS-based automation software, sensor integration, and hardware prototyping.</p>
+      <p>Most recently I worked as a <strong>Robotics Software Engineer Intern at Rolls-Royce</strong> — building automated test environments in ROS/Gazebo, calibrating IMU and LiDAR sensor systems, and improving navigation precision by 15% through control algorithm optimisation.</p>
+      <p>I also lead the <strong>IoT team</strong> at Sahyadri's Open-Source Community, organising a 300+ participant hackathon and mentoring 15+ junior engineers in Python, C++, IoT, and SolidWorks.</p>
+    </div>
+    <div class="reveal">
+      <div class="info-block">
+        <div class="info-row"><div class="info-key">Degree</div><div class="info-val">B.E. Robotics &amp; Automation</div></div>
+        <div class="info-row"><div class="info-key">University</div><div class="info-val">Sahyadri College, VTU</div></div>
+        <div class="info-row"><div class="info-key">CGPA</div><div class="info-val"><span class="cgpa-hi">8.41 / 10</span></div></div>
+        <div class="info-row"><div class="info-key">Graduating</div><div class="info-val">June 2026</div></div>
+        <div class="info-row"><div class="info-key">Location</div><div class="info-val">Mangaluru, Karnataka</div></div>
+        <div class="info-row"><div class="info-key">Email</div><div class="info-val"><a href="mailto:rithuparnaks@gmail.com">rithuparnaks@gmail.com</a></div></div>
+        <div class="info-row"><div class="info-key">Phone</div><div class="info-val">+91 70198 21295</div></div>
+        <div class="info-row"><div class="info-key">Open to</div><div class="info-val">R&amp;D · Robotics SWE · Automation</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="experience" style="background:var(--bg2);">
+  <div class="sec-label"><span>02</span> Experience</div>
+  <h2 class="sec-title reveal">Where I've<br><em>Delivered</em></h2>
+  <div class="exp-list">
+    <div class="exp-card reveal">
+      <div>
+        <div class="exp-period">Dec 2024 – Dec 2025<br>Remote</div>
+        <div class="exp-co-tag tag-rr">Rolls-Royce</div>
+      </div>
+      <div class="exp-content">
+        <div class="exp-role">Robotics Software Engineer Intern</div>
+        <div class="exp-company">Rolls-Royce · Aerospace &amp; Defence</div>
+        <div class="exp-bullets">
+          <div class="exp-bullet">Assembled and commissioned <strong>ROS/Gazebo-based automated test environments</strong>; optimised control algorithms improving navigation precision by <strong>15%</strong>.</div>
+          <div class="exp-bullet">Integrated and calibrated sensors — <strong>IMU, LiDAR, encoders</strong> — into measurement systems; performed diagnostics and closed-loop performance verification.</div>
+          <div class="exp-bullet">Designed test fixture prototypes in <strong>Blender</strong> for hardware-software integration validation; maintained structured technical documentation throughout.</div>
+        </div>
+      </div>
+    </div>
+    <div class="exp-card reveal">
+      <div>
+        <div class="exp-period">Oct 2022 – Feb 2023<br>Mangaluru</div>
+        <div class="exp-co-tag tag-tech">Technical Career Ed.</div>
+      </div>
+      <div class="exp-content">
+        <div class="exp-role">Engineering Intern</div>
+        <div class="exp-company">Technical Career Education</div>
+        <div class="exp-bullets">
+          <div class="exp-bullet">Assembled and tested a <strong>robotic prototype</strong> (Raspberry Pi, Arduino, OpenCV) on a custom test bench, reducing manual labour by <strong>30%</strong> through automation.</div>
+          <div class="exp-bullet">Designed and validated <strong>geared motor actuator mechanisms</strong>; performed iterative diagnostics and functional verification against performance benchmarks.</div>
+        </div>
+      </div>
+    </div>
+    <div class="exp-card reveal">
+      <div>
+        <div class="exp-period">2022<br>Mangaluru</div>
+        <div class="exp-co-tag tag-dti">DTI Labzs</div>
+      </div>
+      <div class="exp-content">
+        <div class="exp-role">3D Design Intern</div>
+        <div class="exp-company">DTI Labzs</div>
+        <div class="exp-bullets">
+          <div class="exp-bullet">Optimised 3D mechanical assets in <strong>Blender/Unity</strong> for real-time rendering; improved performance by <strong>20%</strong> through geometry-level analysis and redesign.</div>
+        </div>
+      </div>
+    </div>
+    <div class="exp-card reveal">
+      <div>
+        <div class="exp-period">Jun 2024 – Present<br>Mangaluru</div>
+        <div class="exp-co-tag tag-tech">Sahyadri OSC</div>
+      </div>
+      <div class="exp-content">
+        <div class="exp-role">IoT Lead</div>
+        <div class="exp-company">Sahyadri Open-Source Community</div>
+        <div class="exp-bullets">
+          <div class="exp-bullet">Organised <strong>DevHost 24</strong> — 300+ participants, 20-hour hackathon; led full event logistics and technical programming.</div>
+          <div class="exp-bullet">Mentored <strong>15+ junior engineers</strong> in IoT, SolidWorks, Python and C++ through structured workshops and project reviews.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="sec-label"><span>03</span> Projects</div>
+  <h2 class="sec-title reveal">Things I've<br><em>Actually Built</em></h2>
+  <div class="projects-grid">
+    <div class="proj-card reveal">
+      <div>
+        <div class="proj-num">01 <span class="proj-status st-award">Gold + Silver — INEX Goa</span></div>
+        <h3 class="proj-title">Arecanut Sprayer &amp; Harvester Robot</h3>
+        <p class="proj-desc">Designed and prototyped a field robot with a detachable actuator mechanism and precision geared motor control for arecanut farming. Validated structural integrity under dynamic load using Ansys FEA.</p>
+        <div class="proj-tags">
+          <span class="proj-tag">SolidWorks</span><span class="proj-tag">Ansys FEA</span><span class="proj-tag">OnShape</span><span class="proj-tag">Actuator Design</span><span class="proj-tag">Geared Motor</span>
+        </div>
+        <div class="proj-points">
+          <div class="proj-point">Detachable actuator mechanism improved field efficiency by 40%</div>
+          <div class="proj-point">Ansys FEA validated jig and fixture integrity under dynamic agricultural loads</div>
+          <div class="proj-point">Won Gold &amp; Silver at INEX International, Goa — full prototype assembled and tested</div>
+        </div>
+      </div>
+      <div class="proj-right"><span class="proj-arrow">↗</span><div class="proj-cat">Mech Design</div></div>
+    </div>
+    <div class="proj-card reveal">
+      <div>
+        <div class="proj-num">02 <span class="proj-status st-award">IEEE Innovation Winner</span></div>
+        <h3 class="proj-title">Solar-Powered EV Bike</h3>
+        <p class="proj-desc">Designed a lightweight electric bike frame using SolidWorks CAD and Ansys FEA simulation. Integrated a solar-electrical control system and validated thermal and mechanical performance under load.</p>
+        <div class="proj-tags">
+          <span class="proj-tag">SolidWorks</span><span class="proj-tag">Ansys FEA</span><span class="proj-tag">Blender</span><span class="proj-tag">Electrical Control</span><span class="proj-tag">Thermal Analysis</span>
+        </div>
+        <div class="proj-points">
+          <div class="proj-point">Lightweight frame designed and validated — FEA confirmed structural performance</div>
+          <div class="proj-point">Solar-electrical control system integrated and thermally/mechanically validated</div>
+          <div class="proj-point">Won IEEE Innovation Award and I2CONNECT Design Excellence</div>
+        </div>
+      </div>
+      <div class="proj-right"><span class="proj-arrow">↗</span><div class="proj-cat">EV / Energy</div></div>
+    </div>
+    <div class="proj-card reveal">
+      <div>
+        <div class="proj-num">03 <span class="proj-status st-built">Deployed — District Collector's Office</span></div>
+        <h3 class="proj-title">Smart Waste Management System</h3>
+        <p class="proj-desc">Built a real-time IoT data collection and notification platform deployed for the Mangalore District Collector's office. Streamlined logistics operations across waste management zones.</p>
+        <div class="proj-tags">
+          <span class="proj-tag">React.js</span><span class="proj-tag">Node.js</span><span class="proj-tag">MongoDB</span><span class="proj-tag">Firebase</span><span class="proj-tag">IoT</span><span class="proj-tag">Real-Time</span>
+        </div>
+        <div class="proj-points">
+          <div class="proj-point">Deployed to a government office — real-world IoT platform with live sensor data</div>
+          <div class="proj-point">Firebase real-time push notifications to field operators</div>
+          <div class="proj-point">Streamlined logistics for the Mangalore District Collector's office</div>
+        </div>
+      </div>
+      <div class="proj-right"><span class="proj-arrow">↗</span><div class="proj-cat">IoT / Web</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="skills" style="background:var(--bg2);">
+  <div class="sec-label"><span>04</span> Skills</div>
+  <h2 class="sec-title reveal">Full Stack<br><em>Engineering</em></h2>
+  <div class="skills-wrap reveal">
+    <div class="skill-cell">
+      <span class="skill-cell-label">// CAD &amp; Design</span>
+      <div class="skill-cell-name">Mechanical Design</div>
+      <div class="skill-chips">
+        <span class="chip hi">SolidWorks</span><span class="chip hi">Fusion 360</span><span class="chip">OnShape</span><span class="chip">Blender</span><span class="chip">CATIA</span><span class="chip hi">Ansys FEA</span>
+      </div>
+    </div>
+    <div class="skill-cell">
+      <span class="skill-cell-label">// Robotics</span>
+      <div class="skill-cell-name">Robot Systems</div>
+      <div class="skill-chips">
+        <span class="chip hi">ROS / ROS2</span><span class="chip hi">Gazebo</span><span class="chip">Arduino</span><span class="chip">Raspberry Pi</span><span class="chip hi">PID Control</span><span class="chip">Actuator Design</span>
+      </div>
+    </div>
+    <div class="skill-cell">
+      <span class="skill-cell-label">// Sensing</span>
+      <div class="skill-cell-name">Test &amp; Measurement</div>
+      <div class="skill-chips">
+        <span class="chip hi">LiDAR</span><span class="chip hi">IMU</span><span class="chip">Encoders</span><span class="chip">Sensor Calibration</span><span class="chip">LabVIEW</span><span class="chip">Closed-Loop Verification</span>
+      </div>
+    </div>
+    <div class="skill-cell">
+      <span class="skill-cell-label">// Code</span>
+      <div class="skill-cell-name">Programming</div>
+      <div class="skill-chips">
+        <span class="chip hi">Python</span><span class="chip hi">C++</span><span class="chip hi2">OpenCV</span><span class="chip">MATLAB</span><span class="chip">React.js</span><span class="chip">Node.js</span><span class="chip">Git / GitHub</span>
+      </div>
+    </div>
+    <div class="skill-cell">
+      <span class="skill-cell-label">// Systems</span>
+      <div class="skill-cell-name">Schematics &amp; Systems</div>
+      <div class="skill-chips">
+        <span class="chip">Pneumatic Schematics</span><span class="chip">Hydraulic Schematics</span><span class="chip">Control System Diagrams</span><span class="chip">Technical Drawings</span>
+      </div>
+    </div>
+    <div class="skill-cell">
+      <span class="skill-cell-label">// Workshop</span>
+      <div class="skill-cell-name">Prototyping</div>
+      <div class="skill-chips">
+        <span class="chip">Mechanical Assembly</span><span class="chip">Fixture &amp; Jig Fabrication</span><span class="chip">Iterative Prototyping</span><span class="chip">5S Practices</span><span class="chip">Technical Report Writing</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="achievements">
+  <div class="sec-label"><span>05</span> Achievements</div>
+  <h2 class="sec-title reveal">Awards &amp;<br><em>Recognition</em></h2>
+  <div class="ach-grid reveal">
+    <div class="ach-card">
+      <div class="ach-medal ach-gold">Gold</div>
+      <div class="ach-event">INEX International Expo, Goa</div>
+      <div class="ach-detail">Arecanut Sprayer &amp; Harvester Robot — Gold Medal for design innovation and working prototype at national level.</div>
+      <div class="ach-year">Sept 2022</div>
+    </div>
+    <div class="ach-card">
+      <div class="ach-medal ach-silver">Silver</div>
+      <div class="ach-event">INEX International Expo, Goa</div>
+      <div class="ach-detail">Second award at the same competition — dual recognition for the same project at national level.</div>
+      <div class="ach-year">Sept 2022</div>
+    </div>
+    <div class="ach-card">
+      <div class="ach-medal ach-win">Winner</div>
+      <div class="ach-event">IEEE Innovation + I2CONNECT</div>
+      <div class="ach-detail">Solar-Powered EV Bike — won IEEE Innovation competition and I2CONNECT Design Excellence Award.</div>
+      <div class="ach-year">Oct 2023</div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" style="padding:0;border-bottom:none;">
+  <div class="contact-inner">
+    <div class="contact-pre">Currently open to opportunities</div>
+    <h2 class="contact-heading reveal">Let's Build<br><em>Together</em></h2>
+    <p class="contact-sub reveal">Seeking R&amp;D, Robotics Software, or Automation Engineering roles. If you're working on something that moves, senses, or decides — let's talk.</p>
+    <div class="cta-row reveal">
+      <a class="cta cta-primary" href="mailto:rithuparnaks@gmail.com">rithuparnaks@gmail.com</a>
+      <a class="cta cta-outline" href="https://linkedin.com/in/rithuparnaks" target="_blank">LinkedIn ↗</a>
+      <a class="cta cta-outline" href="https://github.com/rithuparnaks" target="_blank">GitHub ↗</a>
+      <a class="cta cta-outline" href="tel:+917019821295">+91 70198 21295</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="f-copy">© 2026 Rithuparna K S · Mangaluru, KA</div>
+  <div class="f-right">Robotics &amp; Automation · <span>B.E. '26</span></div>
+</footer>
+
+<script>
+const c=document.getElementById('cur'),c2=document.getElementById('cur2');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;c.style.left=mx+'px';c.style.top=my+'px';});
+(function loop(){rx+=(mx-rx)*.11;ry+=(my-ry)*.11;c2.style.left=rx+'px';c2.style.top=ry+'px';requestAnimationFrame(loop);})();
+document.querySelectorAll('a,button,.proj-card,.skill-cell,.ach-card,.exp-card,.nav-btn').forEach(el=>{
+  el.addEventListener('mouseenter',()=>{c.style.width='16px';c.style.height='16px';c2.style.width='48px';c2.style.height='48px';});
+  el.addEventListener('mouseleave',()=>{c.style.width='8px';c.style.height='8px';c2.style.width='32px';c2.style.height='32px';});
+});
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('visible'),i*70);obs.unobserve(e.target);}});
+},{threshold:0.08});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
